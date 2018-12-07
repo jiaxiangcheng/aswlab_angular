@@ -15,6 +15,9 @@ const httpOptions = {
 
 export class SubmissionsService {
   submissionsURL = 'http://aswlab.herokuapp.com/submissions';
+  newestURL = 'http://aswlab.herokuapp.com/newest';
+  askURL = 'http://aswlab.herokuapp.com/ask';
+
 
   constructor(private http: HttpClient) {}
 
@@ -22,6 +25,20 @@ export class SubmissionsService {
     return this.http.get<any>(`${this.submissionsURL}`, httpOptions).pipe(
       catchError(this.handleError<any>('getAllSubmissions')),
       tap(resp => console.log('getAllSubmissions', resp))
+    );
+  }
+
+  getNewestSubmissions(): Observable<any> {
+    return this.http.get<any>(`${this.newestURL}`, httpOptions).pipe(
+      catchError(this.handleError<any>('getNewestSubmissions')),
+      tap(resp => console.log('getNewestSubmissions', resp))
+    );
+  }
+
+  getAskSubmissions(): Observable<any> {
+    return this.http.get<any>(`${this.askURL}`, httpOptions).pipe(
+      catchError(this.handleError<any>('getAskSubmissions')),
+      tap(resp => console.log('getAskSubmissions', resp))
     );
   }
 
