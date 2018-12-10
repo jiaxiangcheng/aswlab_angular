@@ -14,6 +14,7 @@ import {
     GoogleLoginProvider,
     FacebookLoginProvider
 } from 'angular-6-social-login';
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 // Configs
 export function getAuthServiceConfigs() {
@@ -33,7 +34,8 @@ export function getAuthServiceConfigs() {
         TopBarComponent,
         NewestComponent,
         AskComponent,
-        SigninComponent
+        SigninComponent,
+        TimeAgoPipe
     ],
     imports: [
         BrowserModule,

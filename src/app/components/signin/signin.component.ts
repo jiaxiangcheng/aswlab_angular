@@ -5,6 +5,8 @@ import {
     GoogleLoginProvider
 } from 'angular-6-social-login';
 
+import { SessionsService } from 'src/app/services/sessions/sessions.service';
+
 @Component({
     selector: 'app-signin',
     templateUrl: './signin.component.html',
@@ -13,7 +15,8 @@ import {
 export class SigninComponent {
 
     constructor(
-      private socialAuthService: AuthService
+      private socialAuthService: AuthService,
+      private sessionsService: SessionsService
       ) {}
 
     public socialSignIn(socialPlatform: string) {
@@ -26,8 +29,9 @@ export class SigninComponent {
 
         this.socialAuthService.signIn(socialPlatformProvider).then(userData => {
             console.log(socialPlatform + ' sign in data : ', userData);
-            // Now sign-in with userData
-            // ...
+            localStorage.setItem('email', userData.email);
+            localStorage.setItem('token', userData.idToken);
+            this.sessionsService.changeUserStatus('loginSuccess');
         });
     }
 }

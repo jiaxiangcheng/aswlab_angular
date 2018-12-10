@@ -1,4 +1,13 @@
-<h1>Newest</h1>
-<div *ngIf="newest">
+<h1>Newests</h1>
+<!-- <div *ngIf="newest">
   <pre>{{ newest | json }}</pre>
+</div> -->
+
+<div *ngIf="newests">
+    <div class="ui segments">
+        <div *ngFor="let newest of newests" class="ui segment">
+            <p id="title">{{ newest.title }}</p>
+            <p id="body">2 Points By Jia Xiang Cheng | {{ newest.text }} | {{ newest.created_at | timeAgo}} | web | 3 comments</p>
+        </div>
+    </div>
 </div>

@@ -8,7 +8,7 @@ import { SubmissionsService } from '../../services/submissions/submissions.servi
 })
 export class AskComponent implements OnInit {
 
-  ask;
+  asks;
 
   constructor(
     private submissionsService: SubmissionsService
@@ -16,7 +16,7 @@ export class AskComponent implements OnInit {
 
   ngOnInit() {
     this.submissionsService.getAskSubmissions().subscribe(res => {
-      this.ask = res;
+      this.asks = res;
     });
   }
 

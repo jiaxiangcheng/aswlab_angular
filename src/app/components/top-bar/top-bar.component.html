@@ -1,16 +1,16 @@
 <div class="top-bar-content">
   <a routerLink="" class="menu-buttons">home</a>
   <a routerLink="/newest"  class="menu-buttons">newest</a>
-  <a href="#" class="menu-buttons">comments</a>
+  <a href="" class="menu-buttons">comments</a>
   <a routerLink="/ask" class="menu-buttons">ask</a>
-  <a href="#" class="menu-buttons">submit</a>
+  <a href="" class="menu-buttons">submit</a>
   <a routerLink="/login" class="menu-buttons">Log In</a>
   <div class="right items">
     <div *ngIf="logged">
       <div class="profile" style="position: absolute; right: 125px; top: 6px">
         <a class="ui label" routerLink="/userinfo">
           <img class="ui right spaced avatar image" src="/src/assets/image/boy.jpg">
-          {{ username }}
+          {{ email }}
         </a>
       </div>
       <div class="logout" style="position: absolute; right: 5px; top: 6px">

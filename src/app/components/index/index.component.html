@@ -1,4 +1,13 @@
 <h1>Submissions</h1>
+<!-- <div *ngIf="submissions">
+    <pre>{{ submissions | json }}</pre>
+</div> -->
+
 <div *ngIf="submissions">
-  <pre>{{ submissions | json }}</pre>
+    <div class="ui segments">
+        <div *ngFor="let submission of submissions" class="ui segment">
+            <p id="title">{{ submission.title }}</p>
+            <p id="body">2 Points By Jia Xiang Cheng | {{ submission.text }} | {{ submission.created_at | timeAgo}} | web | 3 comments</p>
+        </div>
+    </div>
 </div>

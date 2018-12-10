@@ -8,7 +8,7 @@ import { SubmissionsService } from '../../services/submissions/submissions.servi
 })
 export class NewestComponent implements OnInit {
 
-  newest;
+  newests;
 
   constructor(
     private submissionsService: SubmissionsService
@@ -16,7 +16,7 @@ export class NewestComponent implements OnInit {
 
   ngOnInit() {
     this.submissionsService.getNewestSubmissions().subscribe(res => {
-      this.newest = res;
+      this.newests = res;
     });
   }
 

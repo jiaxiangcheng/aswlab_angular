@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SubmissionsService } from '../../services/submissions/submissions.service';
+import {TimeAgoPipe} from 'time-ago-pipe';
 
 @Component({
     selector: 'app-index',

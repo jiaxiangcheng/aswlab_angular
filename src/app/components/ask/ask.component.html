@@ -1,4 +1,13 @@
-<h1>Ask</h1>
-<div *ngIf="ask">
+<h1>Asks</h1>
+<!-- <div *ngIf="ask">
   <pre>{{ ask | json }}</pre>
+</div> -->
+
+<div *ngIf="asks">
+    <div class="ui segments">
+        <div *ngFor="let ask of asks" class="ui segment">
+            <p id="title">{{ ask.title }}</p>
+            <p id="body">2 Points By Jia Xiang Cheng | {{ ask.text }} | {{ ask.created_at | timeAgo}} | web | 3 comments</p>
+        </div>
+    </div>
 </div>
