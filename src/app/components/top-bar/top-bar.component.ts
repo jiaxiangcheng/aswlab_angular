@@ -22,6 +22,8 @@ export class TopBarComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.logged = localStorage.getItem('token') ? localStorage.getItem('token') : null;
+        this.email = localStorage.getItem('email') ? localStorage.getItem('email') : null;
         this.sessionsService.user$.subscribe(r => {
             if (r === 'loginSuccess') {
                 this.logged = localStorage.getItem('token');

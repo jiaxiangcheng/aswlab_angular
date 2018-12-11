@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubmissionsService } from '../../services/submissions/submissions.service';
-import {TimeAgoPipe} from 'time-ago-pipe';
+import { TimeAgoPipe } from 'time-ago-pipe';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-index',
@@ -10,11 +11,15 @@ import {TimeAgoPipe} from 'time-ago-pipe';
 export class IndexComponent implements OnInit {
     submissions;
 
-    constructor(private submissionsService: SubmissionsService) {}
+    constructor(private submissionsService: SubmissionsService, private router: Router) {}
 
     ngOnInit() {
         this.submissionsService.getAllSubmissions().subscribe(submissions => {
             this.submissions = submissions;
         });
+    }
+
+    showSubmission(id) {
+        this.router.navigate(['/submission', id]);
     }
 }

@@ -6,7 +6,7 @@
 <div *ngIf="submissions">
     <div class="ui segments">
         <div *ngFor="let submission of submissions" class="ui segment">
-            <p id="title">{{ submission.title }}</p>
+            <p id="title" (click)="showSubmission(submission.id)">{{ submission.title }}</p>
             <p id="body">2 Points By Jia Xiang Cheng | {{ submission.text }} | {{ submission.created_at | timeAgo}} | web | 3 comments</p>
         </div>
     </div>

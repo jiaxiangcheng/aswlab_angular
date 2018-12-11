@@ -1,0 +1,44 @@
+<div class="ui form">
+    <form [formGroup]="submissionForm">
+        <div class="error-message" *ngIf="submissionForm.hasError('notValid')" style="text-align: center">
+            <div class="input-err-message" style="text-align: center">
+                <p style="color: red; white-space: nowrap;">Specify a text or a url, not both!</p>
+            </div>
+        </div>
+        <div class="field">
+            <label style="text-align: left">
+                title:
+                <input type="text" formControlName="title">
+            </label>
+        </div>
+        <div class="field">
+            <label style="text-align: left">
+                url:
+                <input type="text" formControlName="url">
+            </label>
+            <div class="error-message" *ngIf="submissionForm.get('url').invalid && submissionForm.get('url').touched"
+                style="text-align: center">
+                <div class="input-err-message" style="text-align: center">
+                    <p style="color: red; white-space: nowrap;">Enter a correct format of website please!</p>
+                </div>
+            </div>
+        </div>
+        OR
+        <div class="field">
+            <label style="text-align: left">
+                body:
+                <input type="text" formControlName="body">
+            </label>
+            <div class="error-message" *ngIf="submissionForm.get('body').invalid && submissionForm.get('body').touched"
+                style="text-align: center">
+                <div class="input-err-message" style="text-align: center">
+                    <p style="color: red; white-space: nowrap;">Can't be empty!</p>
+                </div>
+            </div>
+        </div>
+        <div class="login-button" style="margin-top: 20px;">
+            <button class="ui fluid blue button" (click)="addSubmission()" [disabled]="!submissionForm.valid">Add Submission</button>
+        </div>
+    </form>
+</div>
+

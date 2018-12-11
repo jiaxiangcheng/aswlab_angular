@@ -15,6 +15,10 @@ import {
     FacebookLoginProvider
 } from 'angular-6-social-login';
 import { TimeAgoPipe } from 'time-ago-pipe';
+import { SubmitComponent } from './components/submit/submit.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { SubmissionDetailsComponent } from './components/submission-details/submission-details.component';
 
 // Configs
 export function getAuthServiceConfigs() {
@@ -35,13 +39,17 @@ export function getAuthServiceConfigs() {
         NewestComponent,
         AskComponent,
         SigninComponent,
-        TimeAgoPipe
+        TimeAgoPipe,
+        SubmitComponent,
+        SubmissionDetailsComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        SocialLoginModule
+        SocialLoginModule,
+        ReactiveFormsModule,
+        FormsModule
     ],
     providers: [
         {
