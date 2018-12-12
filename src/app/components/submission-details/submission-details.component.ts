@@ -12,6 +12,7 @@ export class SubmissionDetailsComponent implements OnInit {
     id: number;
     private sub: any;
     selectedSubmission;
+    selectedSubmissionComments;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -22,10 +23,12 @@ export class SubmissionDetailsComponent implements OnInit {
     ngOnInit() {
         this.sub = this.activatedRoute.params.subscribe(params => {
             this.id = params['id'];
-        });
-
-        this.submissionService.getSubmissionById(this.id).subscribe(res => {
-          this.selectedSubmission = res;
+            this.submissionService.getSubmissionById(this.id).subscribe(res => {
+              this.selectedSubmission = res;
+            });
+            this.submissionService.getSubmissionCommentsById(this.id).subscribe(res => {
+              this.selectedSubmissionComments = res;
+            });
         });
     }
 }

@@ -5,9 +5,8 @@ import { catchError, tap } from 'rxjs/operators';
 
 const httpOptions = {
     headers: new HttpHeaders({
-        'accept': 'application/json',
-        'Token':
-            'asdasdasdasdasd',
+        accept: 'application/json',
+        Token: localStorage.getItem('token'),
         'Content-Type': 'application/json'
     })
 };
@@ -53,11 +52,22 @@ export class SubmissionsService {
     }
 
     getSubmissionById(id): Observable<any> {
-      return this.http.get<any>(`${this.submissionsURL}/${id}`, httpOptions).pipe(
-          catchError(this.handleError<any>('getSubmissionById')),
-          tap(resp => console.log('getSubmissionById', resp))
-      );
-  }
+        return this.http
+            .get<any>(`${this.submissionsURL}/${id}`, httpOptions)
+            .pipe(
+                catchError(this.handleError<any>('getSubmissionById')),
+                tap(resp => console.log('getSubmissionById', resp))
+            );
+    }
+
+    getSubmissionCommentsById(id): Observable<any> {
+        return this.http
+            .get<any>(`${this.submissionsURL}/${id}/comments`, httpOptions)
+            .pipe(
+                catchError(this.handleError<any>('getSubmissionCommentsById')),
+                tap(resp => console.log('getSubmissionCommentsById', resp))
+            );
+    }
 
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
