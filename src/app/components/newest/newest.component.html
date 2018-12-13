@@ -6,8 +6,9 @@
 <div *ngIf="newests">
     <div class="ui segments">
         <div *ngFor="let newest of newests" class="ui segment">
-            <p id="title">{{ newest.title }}</p>
-            <p id="body">2 Points By Jia Xiang Cheng | {{ newest.created_at | timeAgo}} | web | 3 comments</p>
+            <p id="title" (click)="showNewest(newest.id)">{{ newest.title }}</p>
+            <p id="body">{{ newest.points }} Points By {{ newest.author }} | {{ newest.created_at | timeAgo}} | web | {{ newest.comment_number }}
+                comments</p>
         </div>
     </div>
 </div>

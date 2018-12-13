@@ -6,8 +6,8 @@
 <div *ngIf="asks">
     <div class="ui segments">
         <div *ngFor="let ask of asks" class="ui segment">
-            <p id="title">{{ ask.title }}</p>
-            <p id="body">2 Points By Jia Xiang Cheng | {{ ask.created_at | timeAgo}} | web | 3 comments</p>
+            <p id="title" (click)="showAsk(ask.id)">{{ ask.title }}</p>
+            <p id="body">{{ ask.points }} Points By {{ ask.author }} | {{ ask.created_at | timeAgo}} | web | {{ ask.comment_number }} comments</p>
         </div>
     </div>
 </div>

@@ -7,7 +7,9 @@
     <div class="ui segments">
         <div *ngFor="let submission of submissions" class="ui segment">
             <p id="title" (click)="showSubmission(submission.id)">{{ submission.title }}</p>
-            <p id="body">2 Points By Jia Xiang Cheng | {{ submission.created_at | timeAgo}} | web | 3 comments</p>
+            <i class="thumbs up outline icon" (click)="upVote(submission.id)"></i>
+            <i class="thumbs down outline icon" style="margin-left: 10px" (click)="downVote(submission.id)"></i>
+            <p id="body">{{ submission.points }} Points By {{ submission.author }} | {{ submission.created_at | timeAgo}} | web | {{ submission.comment_number }} comments</p>
         </div>
     </div>
 </div>

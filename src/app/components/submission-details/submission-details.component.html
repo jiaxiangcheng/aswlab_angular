@@ -1,7 +1,7 @@
 <h2>Submissions information:</h2>
 <div class="submission_details" *ngIf="selectedSubmission">
     <p>{{selectedSubmission.title}}</p>
-    <p id="body">2 Points By Jia Xiang Cheng | {{ selectedSubmission.created_at | timeAgo}} | web | 3 comments</p>
+    <p id="body">{{selectedSubmission.points}} Points By {{ selectedSubmission.author }} | {{ selectedSubmission.created_at | timeAgo}} | web | {{ selectedSubmission.comment_number }} comments</p>
     <p>Body:</p>
     <p>{{ selectedSubmission.text }}</p>
 </div>

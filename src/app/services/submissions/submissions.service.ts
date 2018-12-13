@@ -6,7 +6,7 @@ import { catchError, tap } from 'rxjs/operators';
 const httpOptions = {
     headers: new HttpHeaders({
         accept: 'application/json',
-        Token: localStorage.getItem('token'),
+        Token: 'ya29.GlxxBnG2Whnay1LCc66gnNxp4IS7HovlbDQAvfBERIHxua3BHOrPqXsCE9cZm0ii2utae8JdxywmNrz1VqytXfO_v8PtsEnbdWa7e73lHVMqTgfGPC4B1XdogvmAhg',
         'Content-Type': 'application/json'
     })
 };
@@ -16,8 +16,9 @@ const httpOptions = {
 })
 export class SubmissionsService {
     submissionsURL = 'http://aswlab.herokuapp.com/submissions';
-    newestURL = 'http://aswlab.herokuapp.com/newest';
-    askURL = 'http://aswlab.herokuapp.com/ask';
+
+    // ask http://aswlab.herokuapp.com/submissions?type=ask&sort_by=points
+    // newst http://aswlab.herokuapp.com/submissions?sort_by=created_at
 
     constructor(private http: HttpClient) {}
 
@@ -29,14 +30,14 @@ export class SubmissionsService {
     }
 
     getNewestSubmissions(): Observable<any> {
-        return this.http.get<any>(`${this.newestURL}`, httpOptions).pipe(
+        return this.http.get<any>(`${this.submissionsURL}?sort_by=created_at`, httpOptions).pipe(
             catchError(this.handleError<any>('getNewestSubmissions')),
             tap(resp => console.log('getNewestSubmissions', resp))
         );
     }
 
     getAskSubmissions(): Observable<any> {
-        return this.http.get<any>(`${this.askURL}`, httpOptions).pipe(
+        return this.http.get<any>(`${this.submissionsURL}?type=ask&sort_by=points`, httpOptions).pipe(
             catchError(this.handleError<any>('getAskSubmissions')),
             tap(resp => console.log('getAskSubmissions', resp))
         );
@@ -67,6 +68,14 @@ export class SubmissionsService {
                 catchError(this.handleError<any>('getSubmissionCommentsById')),
                 tap(resp => console.log('getSubmissionCommentsById', resp))
             );
+    }
+
+    upVote(id) {
+
+    }
+
+    downVote(id) {
+
     }
 
     private handleError<T>(operation = 'operation', result?: T) {
