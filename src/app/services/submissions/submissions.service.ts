@@ -6,7 +6,7 @@ import { catchError, tap } from 'rxjs/operators';
 const httpOptions = {
     headers: new HttpHeaders({
         accept: 'application/json',
-        Token: 'ya29.GlxxBnG2Whnay1LCc66gnNxp4IS7HovlbDQAvfBERIHxua3BHOrPqXsCE9cZm0ii2utae8JdxywmNrz1VqytXfO_v8PtsEnbdWa7e73lHVMqTgfGPC4B1XdogvmAhg',
+        Token: localStorage.getItem('token'),
         'Content-Type': 'application/json'
     })
 };
@@ -16,9 +16,6 @@ const httpOptions = {
 })
 export class SubmissionsService {
     submissionsURL = 'http://aswlab.herokuapp.com/submissions';
-
-    // ask http://aswlab.herokuapp.com/submissions?type=ask&sort_by=points
-    // newst http://aswlab.herokuapp.com/submissions?sort_by=created_at
 
     constructor(private http: HttpClient) {}
 

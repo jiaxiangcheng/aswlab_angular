@@ -19,6 +19,7 @@ export class TopBarComponent implements OnInit {
     logout() {
         this.sessionsService.logout();
         this.logged = null;
+        this.router.navigate(['/login']);
     }
 
     ngOnInit() {

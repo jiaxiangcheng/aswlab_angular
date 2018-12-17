@@ -6,6 +6,7 @@ import { AskComponent } from './components/ask/ask.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SubmitComponent } from './components/submit/submit.component';
 import { SubmissionDetailsComponent } from './components/submission-details/submission-details.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
     { path: 'ask', component: AskComponent},
     { path: 'login', component: SigninComponent },
     { path: 'submit', component: SubmitComponent },
-    { path: 'submission/:id', component: SubmissionDetailsComponent}
+    { path: 'submission/:id', component: SubmissionDetailsComponent},
+    { path: 'userinfo', component: UserInfoComponent},
 ];
 
 @NgModule({

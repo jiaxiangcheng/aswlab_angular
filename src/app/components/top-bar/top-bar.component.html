@@ -1,24 +1,35 @@
-<div class="top-bar-content">
-  <a routerLink="" class="menu-buttons">home</a>
-  <a routerLink="/newest"  class="menu-buttons">newest</a>
-  <a routerLink="" class="menu-buttons">comments</a>
-  <a routerLink="/ask" class="menu-buttons">ask</a>
-  <a routerLink="/submit" class="menu-buttons">submit</a>
-  <a routerLink="/login" class="menu-buttons" *ngIf='!logged'>Log In</a>
-  <div class="right items">
-    <div *ngIf="logged">
-      <div class="profile" style="position: absolute; right: 125px; top: 6px">
-        <a class="ui label" routerLink="/userinfo">
-          <img class="ui right spaced avatar image" src="/src/assets/image/boy.jpg">
-          {{ email }}
-        </a>
-      </div>
-      <div class="logout" style="position: absolute; right: 5px; top: 6px">
-        <button class="ui red button" style="height: 39.5px; background-color: red" (click)="logout()">
-          <i class="sign-out icon"></i>
-          Log out
-        </button>
-      </div>
+<div class="navigation_buttons">
+    <div class="div_logo" style="width: 50px;">
+        <img id="logo" src="../../../assets/image/hackernews.jpg">
     </div>
-  </div>
+    <div class="buttons">
+        <a routerLink="" class="menu-buttons">home</a>
+        <a routerLink="/newest" class="menu-buttons">newest</a>
+        <a routerLink="" class="menu-buttons">comments</a>
+        <a routerLink="/ask" class="menu-buttons">ask</a>
+        <a routerLink="/submit" class="menu-buttons">submit</a>
+    </div>
+</div>
+<div class="right items">
+    <div *ngIf="!logged" style="position: absolute; right: 20px; top: 6px">
+        <a routerLink="/login" class="menu-buttons" *ngIf='!logged'>
+            <button class="ui labeled icon button">
+                <i class="sign in alternate icon"></i>
+                Log In
+            </button></a>
+    </div>
+    <div *ngIf="logged">
+        <div class="profile" style="position: absolute; right: 125px; top: 6px">
+            <a class="ui label" routerLink="/userinfo">
+                <img class="ui right spaced avatar image" src="/src/assets/image/boy.jpg">
+                {{ email }}
+            </a>
+        </div>
+        <div class="logout" style="position: absolute; right: 5px; top: 6px">
+            <button class="ui red button" style="height: 39.5px; background-color: red" (click)="logout()">
+                <i class="sign-out icon"></i>
+                Log out
+            </button>
+        </div>
+    </div>
 </div>

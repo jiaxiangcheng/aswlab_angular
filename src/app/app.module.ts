@@ -19,6 +19,7 @@ import { SubmitComponent } from './components/submit/submit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { SubmissionDetailsComponent } from './components/submission-details/submission-details.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 // Configs
 export function getAuthServiceConfigs() {
@@ -41,7 +42,8 @@ export function getAuthServiceConfigs() {
         SigninComponent,
         TimeAgoPipe,
         SubmitComponent,
-        SubmissionDetailsComponent
+        SubmissionDetailsComponent,
+        UserInfoComponent
     ],
     imports: [
         BrowserModule,
@@ -49,7 +51,8 @@ export function getAuthServiceConfigs() {
         HttpClientModule,
         SocialLoginModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        AppRoutingModule
     ],
     providers: [
         {
