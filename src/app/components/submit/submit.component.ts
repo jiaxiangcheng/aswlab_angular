@@ -6,6 +6,8 @@ import {
     Validators
 } from '@angular/forms';
 import { SubmissionsService } from '../../services/submissions/submissions.service';
+import { Router } from '@angular/router';
+
 
 @Component({
     selector: 'app-submit',
@@ -17,7 +19,8 @@ export class SubmitComponent implements OnInit {
 
     constructor(
         private submissionService: SubmissionsService,
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private router: Router
     ) {
         this.submissionForm = fb.group(
             {
@@ -45,7 +48,7 @@ export class SubmitComponent implements OnInit {
         this.submissionService
             .addSubmission(newSubmission)
             .subscribe(res => {
-
+                this.router.navigate([`/submission/${res.id}`]);
             });
     }
 
