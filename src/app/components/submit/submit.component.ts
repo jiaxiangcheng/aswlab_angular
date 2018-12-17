@@ -23,7 +23,7 @@ export class SubmitComponent implements OnInit {
             {
                 title: new FormControl(''),
                 url: new FormControl('', Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')),
-                body: new FormControl('', Validators.required)
+                text: new FormControl('', Validators.required)
             },
             { validator: this.titleOrUrlValidator }
         );
@@ -39,7 +39,7 @@ export class SubmitComponent implements OnInit {
         const newSubmission = {
             title: this.submissionForm.value.title,
             url: this.submissionForm.value.url,
-            body: this.submissionForm.value.body
+            text: this.submissionForm.value.text
         };
         console.log('nre submission: ', newSubmission);
         this.submissionService

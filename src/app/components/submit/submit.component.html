@@ -26,10 +26,10 @@
         OR
         <div class="field">
             <label style="text-align: left">
-                body:
-                <input type="text" formControlName="body">
+                text:
+                <input type="text" formControlName="text">
             </label>
-            <div class="error-message" *ngIf="submissionForm.get('body').invalid && submissionForm.get('body').touched"
+            <div class="error-message" *ngIf="submissionForm.get('text').invalid && submissionForm.get('text').touched"
                 style="text-align: center">
                 <div class="input-err-message" style="text-align: center">
                     <p style="color: red; white-space: nowrap;">Can't be empty!</p>
@@ -41,4 +41,3 @@
         </div>
     </form>
 </div>
-
