@@ -32,7 +32,7 @@ export class SigninComponent {
         this.socialAuthService.signIn(socialPlatformProvider).then(userData => {
             console.log(socialPlatform + ' sign in data : ', userData);
             localStorage.setItem('email', userData.email);
-            localStorage.setItem('token', userData.token);
+            localStorage.setItem('token', userData.name);
             this.sessionsService.changeUserStatus('loginSuccess');
             this.router.navigate(['/index']);
         });

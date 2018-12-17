@@ -41,6 +41,7 @@ export class SubmissionsService {
     }
 
     addSubmission(submission): Observable<any> {
+        console.log(httpOptions);
         return this.http
             .post<any>(`${this.submissionsURL}`, submission, httpOptions)
             .pipe(
