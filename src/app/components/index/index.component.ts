@@ -20,6 +20,10 @@ export class IndexComponent implements OnInit {
         });
     }
 
+    redirectToWeb(url) {
+        window.location.href = url;
+    }
+
     showSubmission(id) {
         this.router.navigate(['/submission', id]);
     }

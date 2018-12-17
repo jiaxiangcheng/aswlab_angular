@@ -9,7 +9,8 @@
             <p id="title" (click)="showSubmission(submission.id)">{{ submission.title }}</p>
             <i class="thumbs up outline icon" (click)="upVote(submission.id)"></i>
             <i class="thumbs down outline icon" style="margin-left: 10px" (click)="downVote(submission.id)"></i>
-            <p id="body">{{ submission.points }} Points By {{ submission.author }} | {{ submission.created_at | timeAgo}} | web | {{ submission.comment_number }} comments</p>
+            <p id="body">{{ submission.points }} Points By {{ submission.author }} | {{ submission.created_at | timeAgo}} 
+                <span *ngIf="submission.url != '' && submission.url != null" (click)="redirectToWeb(submission.url)">| Web |</span>  {{ submission.comment_number }} comments</p>
         </div>
     </div>
 </div>
